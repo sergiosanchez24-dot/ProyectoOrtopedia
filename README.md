@@ -52,3 +52,28 @@ Para acceder a la aplicacion y probar el panel de usuario privado y el sistema d
 Correo / Usuario: [admin1@gmail.com]
 
 Contrasena: [Admin_123]
+
+
+Nota sobre el entorno de despliegue (Local vs Servidor Ubuntu):
+
+Dependiendo de donde se vaya a ejecutar el proyecto, es necesario cambiar la direccion IP a la que apuntan las peticiones del frontend hacia el backend. Esto se puede hacer facilmente usando la herramienta de busqueda de Visual Studio Code.
+
+Pasos para cambiar la IP:
+
+Abre el proyecto completo en Visual Studio Code.
+
+Haz clic en el icono de la lupa (Buscar) en el menu lateral izquierdo o pulsa la combinacion de teclas Ctrl+Shift+F.
+
+Utiliza los campos de Buscar y Reemplazar segun el entorno que necesites:
+
+Para trabajar en local (desde el propio VS Code):
+Buscar: http://172.23.16.181:5000
+Reemplazar por: http://localhost:5000
+
+Para desplegar en la maquina virtual (servidor Ubuntu):
+Buscar: http://localhost:5000
+Reemplazar por: http://172.23.16.181:5000
+
+Haz clic en el boton "Reemplazar todo" (o pulsa Ctrl+Alt+Enter).
+
+Guarda todos los archivos (Archivo > Guardar todo) para aplicar los cambios antes de ejecutar o compilar el proyecto.
