@@ -20,7 +20,7 @@ exports.crearProducto = async (req, res) => {
 
         // 1. Si el usuario subió un archivo desde su PC (req.file)
         if (req.file) {
-            imagenFinal = `http://172.23.16.181:5000/uploads/${req.file.filename}`;
+            imagenFinal = `http://localhost:5000/uploads/${req.file.filename}`;
         } 
         // 2. Si el usuario pegó un enlace de internet en el formulario
         else if (imagen) {

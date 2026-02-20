@@ -19,7 +19,7 @@ function EditarProducto() {
   useEffect(() => {
     const cargarProducto = async () => {
       try {
-        const res = await axios.get(`http://172.23.16.181:5000/api/productos/${id}`);
+        const res = await axios.get(`http://localhost:5000/api/productos/${id}`);
         const producto = res.data;
         
         // Convertimos la lista de categorías de la base de datos a texto ("Cat1, Cat2")
@@ -67,7 +67,7 @@ function EditarProducto() {
     const datosAEnviar = { ...formData, categoria: categoriasArray };
 
     try {
-      await axios.put(`http://172.23.16.181:5000/api/productos/${id}`, datosAEnviar);
+      await axios.put(`http://localhost:5000/api/productos/${id}`, datosAEnviar);
       
       Swal.fire({
         icon: 'success',

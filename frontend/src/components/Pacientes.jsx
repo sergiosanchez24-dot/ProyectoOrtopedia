@@ -14,7 +14,7 @@ function Pacientes() {
 
   const cargarPacientes = async () => {
     try {
-      const res = await axios.get('http://172.23.16.181:5000/api/pacientes');
+      const res = await axios.get('http://localhost:5000/api/pacientes');
       setPacientes(res.data);
     } catch (error) {
       console.error("Error cargando pacientes:", error);
@@ -28,7 +28,7 @@ function Pacientes() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('http://172.23.16.181:5000/api/pacientes', nuevoPaciente);
+        await axios.post('http://localhost:5000/api/pacientes', nuevoPaciente);
         Swal.fire({
           icon: 'success',
           title: 'Paciente registrado',
@@ -57,7 +57,7 @@ function Pacientes() {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://172.23.16.181:5000/api/pacientes/${id}`);
+        await axios.delete(`http://localhost:5000/api/pacientes/${id}`);
         // Quitamos al paciente de la lista visualmente sin tener que recargar la página
         setPacientes(pacientes.filter(paciente => paciente._id !== id));
         

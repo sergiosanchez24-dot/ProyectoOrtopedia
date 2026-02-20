@@ -30,7 +30,7 @@ function RegistroUsuario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://172.23.16.181:5000/api/usuarios/registro', formData);
+      await axios.post('http://localhost:5000/api/usuarios/registro', formData);
       
       Swal.fire({
         title: '¡Cuenta creada!',

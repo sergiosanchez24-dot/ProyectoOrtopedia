@@ -15,8 +15,8 @@ function Home() {
       try {
         // Pedimos los datos al backend al mismo tiempo
         const [resPacientes, resProductos] = await Promise.all([
-          axios.get('http://172.23.16.181:5000/api/pacientes'),
-          axios.get('http://172.23.16.181:5000/api/productos')
+          axios.get('http://localhost:5000/api/pacientes'),
+          axios.get('http://localhost:5000/api/productos')
         ]);
 
         // Filtramos qué productos tienen 5 o menos unidades

@@ -28,7 +28,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://172.23.16.181:5000/api/usuarios/login', formData);
+      const res = await axios.post('http://localhost:5000/api/usuarios/login', formData);
       
       // Guardamos el token de seguridad y el nombre del usuario en el navegador
       if (res.data.token) {
