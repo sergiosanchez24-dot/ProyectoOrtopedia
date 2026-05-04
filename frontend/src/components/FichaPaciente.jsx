@@ -23,13 +23,13 @@ function FichaPaciente() {
 
   const cargarDatos = async () => {
     try {
-      const resPaciente = await axios.get(`http://localhost:5000/api/pacientes/${id}`);
+      const resPaciente = await axios.get(`http://172.23.16.181:5000/api/pacientes/${id}`);
       setPaciente(resPaciente.data);
 
-      const resTrabajos = await axios.get(`http://localhost:5000/api/trabajos/paciente/${id}`);
+      const resTrabajos = await axios.get(`http://172.23.16.181:5000/api/trabajos/paciente/${id}`);
       setTrabajos(resTrabajos.data);
 
-      const resProductos = await axios.get('http://localhost:5000/api/productos');
+      const resProductos = await axios.get('http://172.23.16.181:5000/api/productos');
       setProductos(resProductos.data);
     } catch (error) {
       console.error("Error al cargar datos:", error);
@@ -39,7 +39,7 @@ function FichaPaciente() {
   const handleCrearTrabajo = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/trabajos', { ...nuevoTrabajo, paciente: id });
+      await axios.post('http://172.23.16.181:5000/api/trabajos', { ...nuevoTrabajo, paciente: id });
       setNuevoTrabajo({ titulo: '', descripcion: '' });
       cargarDatos();
     } catch (error) {
@@ -49,7 +49,7 @@ function FichaPaciente() {
 
   const handleCambiarEstado = async (trabajoId, nuevoEstado) => {
     try {
-      await axios.put(`http://localhost:5000/api/trabajos/${trabajoId}/estado`, { estado: nuevoEstado });
+      await axios.put(`http://172.23.16.181:5000/api/trabajos/${trabajoId}/estado`, { estado: nuevoEstado });
       cargarDatos();
     } catch (error) {
       console.error("Error al cambiar estado:", error);
@@ -78,7 +78,7 @@ function FichaPaciente() {
 
     // 3. Si hay stock, procedemos normalmente
     try {
-      await axios.post(`http://localhost:5000/api/trabajos/${trabajoId}/materiales`, {
+      await axios.post(`http://172.23.16.181:5000/api/trabajos/${trabajoId}/materiales`, {
         productoId: datosForm.productoId,
         cantidad: cantidadDeseada
       });
@@ -104,7 +104,7 @@ function FichaPaciente() {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/trabajos/${trabajoId}/materiales/${materialId}`);
+        await axios.delete(`http://172.23.16.181:5000/api/trabajos/${trabajoId}/materiales/${materialId}`);
         cargarDatos(); 
         
         Swal.fire({

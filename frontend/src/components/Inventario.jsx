@@ -13,7 +13,7 @@ function Inventario() {
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/productos');
+        const res = await axios.get('http://172.23.16.181:5000/api/productos');
         setProductos(res.data);
       } catch (error) {
         console.error("Error al obtener productos", error);
@@ -86,7 +86,7 @@ function Inventario() {
 
     if (confirmacion.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/productos/${id}`);
+        await axios.delete(`http://172.23.16.181:5000/api/productos/${id}`);
         
         // Actualizamos el estado para que desaparezca de la tabla sin recargar
         setProductos(productos.filter(producto => producto._id !== id));

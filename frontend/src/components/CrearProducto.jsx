@@ -35,7 +35,7 @@ function CrearProducto() {
     const datosAEnviar = { ...formData, categoria: categoriasArray };
 
     try {
-      await axios.post('http://localhost:5000/api/productos', datosAEnviar);
+      await axios.post('http://172.23.16.181:5000/api/productos', datosAEnviar);
       
       Swal.fire({
         icon: 'success',
