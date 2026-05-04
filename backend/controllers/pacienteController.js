@@ -1,5 +1,6 @@
 const Paciente = require('../models/Paciente');
 
+// This function handles the creation of a new patient record in the database
 exports.crearPaciente = async (req, res) => {
     try {
         const nuevoPaciente = new Paciente(req.body);
@@ -10,6 +11,7 @@ exports.crearPaciente = async (req, res) => {
     }
 };
 
+// This function retrieves all patients from the database, sorted by the most recent admission date
 exports.obtenerPacientes = async (req, res) => {
     try {
         const pacientes = await Paciente.find().sort({ fechaAlta: -1 }); // Los más nuevos primero
@@ -31,7 +33,7 @@ exports.obtenerPaciente = async (req, res) => {
     }
 };
 
-// Eliminar un paciente
+// This function finds a specific patient by ID and removes their record from the system
 exports.eliminarPaciente = async (req, res) => {
     try {
         const paciente = await Paciente.findByIdAndDelete(req.params.id);
